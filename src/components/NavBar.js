@@ -40,12 +40,9 @@ export const NavBar = () => {
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
-            <a href="/">
-              <img src={navIcon1} alt="Icon 1 description" />
-            </a>
-            <a href="/">
-              <img src={navIcon3} alt="Icon 3 description" />
-            </a>
+              <a href="https://www.linkedin.com/in/safi-uddin-239860274/" target="_blank" rel="noopener noreferrer">
+                <img src={navIcon1} alt="LinkedIn" />
+              </a>
             </div>
             <button className="vvd"><span>Let’s Connect</span></button>
           </span>
