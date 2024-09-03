@@ -44,9 +44,6 @@ export const NavBar = () => {
               <img src={navIcon1} alt="Icon 1 description" />
             </a>
             <a href="/">
-              <img src={navIcon2} alt="Icon 2 description" />
-            </a>
-            <a href="/">
               <img src={navIcon3} alt="Icon 3 description" />
             </a>
             </div>
