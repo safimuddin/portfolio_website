@@ -23,7 +23,7 @@ export const Projects = () => {
     "Collafusions": "Interned at Collafusions where I contributed to the development of a website analytics service, where we utilized A/B testing and other methods to track user behaviour and inputs.",
     "UGA WAVE Lab": "Worked as a Robotics Intern at UGA WAVE Lab, where I assisted in the development of a air-pump controlled worm that tracked under ground plant growth, automated by C++.",
     "SKAPS": "Participated in a software engineering internship at SKAPS, focusing on implementing new features inside the materials database along with a team as wlel as ran integration and unit tests to ensure any updates ran smoothly.",
-    "Social Media App": "Led the development of a social media app that focuses on showcasing a user's projects and ideas in a scrollable form, an AI powered project idea tool, and a collaboration tool where multiple users can form together to create projects and showcase them to the internet."
+    "Connexya": "Led the development of a social media app that focuses on showcasing a user's projects and ideas in a scrollable form, an AI powered project idea tool, and a collaboration tool where multiple users can form together to create projects and showcase them to the internet."
   };
 
   const projects = [
@@ -32,7 +32,7 @@ export const Projects = () => {
     { title: "Collafusions", description: "Software Engineer Intern", imgUrl: collafusions },
     { title: "UGA WAVE Lab", description: "Robotics Intern", imgUrl: waveLab },
     { title: "SKAPS", description: "Software Engineer Intern", imgUrl: SKAPS },
-    { title: "Social Media App", description: "Software Engineering Lead", imgUrl: smapp },
+    { title: "Connexya", description: "Software Engineering Lead", imgUrl: smapp },
   ];
 
   const handleSelect = (eventKey) => {
@@ -60,10 +60,10 @@ export const Projects = () => {
                         <Nav.Link eventKey="first">Projects</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">Summary</Nav.Link>
+                        <Nav.Link eventKey="second">Specifics</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="third">Reflection</Nav.Link>
+                        <Nav.Link eventKey="third">Summary</Nav.Link>
                       </Nav.Item>
                     </Nav>
                     <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
@@ -98,7 +98,7 @@ export const Projects = () => {
                         </div>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <p>Lorem ipsum dolor sit amet...</p>
+                        <p>I have a diverse background in software engineering and technology, demonstrated through various impactful projects and internships. As a team lead, I successfully guided a group in developing a feature-rich website for a local mosque, incorporating donation systems, communication tools, and newsletter functionalities. My role as a TA for Data Structures and Algorithms honed my skills in teaching and problem-solving. Internships at Collafusions and SKAPS allowed me to work on website analytics, feature development, and testing, while my robotics internship at UGA WAVE Lab involved creating an innovative device for tracking plant growth. Additionally, I led the development of a dynamic social media app focused on showcasing projects, leveraging AI for idea generation, and fostering collaboration. Each experience has contributed to my expertise in building, testing, and deploying complex software solutions.</p>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
