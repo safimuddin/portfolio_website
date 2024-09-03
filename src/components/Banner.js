@@ -10,15 +10,17 @@ export const Banner = () => {
     const toRotate = ["Web Developer", "Machine Learning Developer", "Math Student"];
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(300- Math.random() * 100);
-    const [index, setIndex] = useState(1);
+   
     const period = 800;
 
     useEffect(() => {
         let ticker = setInterval(() => {
-            tick()    
-        }, delta )
+            tick();    
+        }, delta);
+    
         return () => { clearInterval(ticker); }
-    }, [text])
+    }, [delta, tick, text]);
+    
 
     const tick = () => {
         let i = loopNum % toRotate.length;
