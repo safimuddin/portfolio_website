@@ -29,7 +29,7 @@ export const Projects = () => {
   const projects = [
     { title: "Al Huda Islamic Center", description: "Software Engineer Lead", imgUrl: alHudaIMG },
     { title: "CS 1332", description: "Data Structures and Algorithms TA", imgUrl: dataStructures },
-    { title: "Collafusions", description: "Software Engineer Intern", imgUrl: collafusions },
+    { title: "Collafusions", description: "Software Engineer", imgUrl: collafusions },
     { title: "UGA WAVE Lab", description: "Robotics Intern", imgUrl: waveLab },
     { title: "SKAPS", description: "Software Engineer Intern", imgUrl: SKAPS },
     { title: "Connexya", description: "Software Engineering Lead", imgUrl: smapp },
