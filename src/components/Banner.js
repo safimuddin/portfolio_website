@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
-import DS from "../assets/img/colorfulimg.png";
+import DS from "../assets/img/cropped_circle_image.png";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -52,11 +52,11 @@ export const Banner = () => {
             <h2>{'ML-focused CS major && '}<span className="wrap">{text}</span></h2>
             <p>Building intelligent systems | Full-stack development | Distributed learning systems</p>
             <div className="social-links">
-              <a href="tel:706-340-5999" className="social-link">📞 706-340-5999</a>
-              <a href="mailto:safimuddin2005@gmail.com" className="social-link">📧 safimuddin2005@gmail.com</a>
-              <a href="https://linkedin.com/in/safi-uddin-239860274/" target="_blank" rel="noopener noreferrer" className="social-link">💼 LinkedIn</a>
-              <a href="https://github.com/safimuddin" target="_blank" rel="noopener noreferrer" className="social-link">🔗 GitHub</a>
-              <a href="https://safimuddin.netlify.app" target="_blank" rel="noopener noreferrer" className="social-link">🌐 Website</a>
+              <a href="tel:706-340-5999" className="social-link">706-340-5999</a>
+              <a href="mailto:safimuddin2005@gmail.com" className="social-link">safimuddin2005@gmail.com</a>
+              <a href="https://linkedin.com/in/safi-uddin-239860274/" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+              <a href="https://github.com/safimuddin" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
+              <a href="https://safimuddin.netlify.app" target="_blank" rel="noopener noreferrer" className="social-link">Website</a>
             </div>
             <button onClick={() => console.log('connect')}>Let's connect! <ArrowRightCircle size={25}/></button>
           </Col>

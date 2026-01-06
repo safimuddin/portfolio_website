@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavBar } from "../components/NavBar";
 import InteractiveGlobe from "../components/InteractiveGlobe";
 import ASMRBackground from "../components/ASMRBackground";
@@ -8,6 +8,10 @@ import { GlowingStarsBackgroundCard } from "../components/GlowingStarsCard";
 import "../styles/GlobePage.css";
 
 export default function GlobePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="globe-page">
       <ASMRBackground />

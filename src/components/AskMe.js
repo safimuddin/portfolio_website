@@ -18,6 +18,7 @@ export const AskMe = () => {
   const [loading, setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(true);
   const messagesEndRef = useRef(null);
+  const chatMessagesRef = useRef(null);
 
   const suggestions = [
     "What are Safi's main technical skills?",
@@ -29,11 +30,18 @@ export const AskMe = () => {
   ];
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (chatMessagesRef.current) {
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
-    scrollToBottom();
+    // Only scroll on subsequent message updates, not on initial mount
+    if (messages.length > 1) {
+      setTimeout(() => {
+        scrollToBottom();
+      }, 0);
+    }
   }, [messages]);
 
   const resumeContext = `
@@ -88,8 +96,8 @@ Education:
     try {
       setLoading(true);
 
-      // Call your backend API endpoint
-      const response = await fetch('/api/ask-me', {
+      // Call Netlify function
+      const response = await fetch('/.netlify/functions/ask-me', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -157,7 +165,7 @@ Education:
                   <p>Curious about my experience, skills, or projects? Ask away!</p>
 
                   <div className="chat-container">
-                    <div className="chat-messages">
+                    <div className="chat-messages" ref={chatMessagesRef}>
                       {messages.map((message) => (
                         <div
                           key={message.id}
@@ -179,7 +187,6 @@ Education:
                           </div>
                         </div>
                       )}
-                      <div ref={messagesEndRef} />
                     </div>
 
                     {showSuggestions && messages.length === 1 && (

@@ -108,24 +108,25 @@ const CometPath = ({ scrollYProgress, comet }) => {
     [0, 1]
   );
 
-  // Generate a simple diagonal path from top to bottom
+  // Generate a simple diagonal path from top to bottom (using pixel values, not percentages)
   const getCometPath = () => {
-    // Convert percentage offsets to numbers
-    const xOffsetNum = parseFloat(comet.xOffset);
+    // Convert percentage offsets to pixel values
+    const xOffsetNum = parseFloat(comet.xOffset) / 100;
+    const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : 1000;
     
     // Start at the comet's xOffset position, slightly above the screen
-    const startX = xOffsetNum;
-    const startY = -20; // Start above the screen
-    const endX = startX + (Math.random() * 40 - 20); // Slight curve
-    const endY = 120; // End below the screen
+    const startX = viewportWidth * xOffsetNum;
+    const startY = -100; // Start above the screen
+    const endX = startX + (Math.random() * 80 - 40); // Slight curve
+    const endY = window.innerHeight + 100; // End below the screen
     
     // Create a gentle curve
-    const controlX1 = startX + (Math.random() * 30 - 15);
-    const controlY1 = startY + 30;
-    const controlX2 = startX + (Math.random() * 30 - 15);
-    const controlY2 = startY + 60;
+    const controlX1 = startX + (Math.random() * 60 - 30);
+    const controlY1 = startY + (window.innerHeight * 0.3);
+    const controlX2 = startX + (Math.random() * 60 - 30);
+    const controlY2 = startY + (window.innerHeight * 0.6);
     
-    return `M ${startX}% ${startY}% C ${controlX1}% ${controlY1}%, ${controlX2}% ${controlY2}%, ${endX}% ${endY}%`;
+    return `M ${startX} ${startY} C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${endX} ${endY}`;
   };
 
   const cometPath = getCometPath();
@@ -216,14 +217,11 @@ const CometPath = ({ scrollYProgress, comet }) => {
           pointerEvents: 'none'
         }}
       >
-        <motion.g
-          style={{
-            offsetPath: `path('${cometPath}')`,
-            offsetDistance: pathLength,
-          }}
-        >
-          {/* Outer glow */}
-          <circle
+        <defs>
+          <path id={`cometAnimPath-${comet.id}`} d={cometPath} />
+        </defs>
+        <motion.g style={{ opacity: cometOpacity }}>
+          <motion.circle
             cx="0"
             cy="0"
             r={comet.size * 1.5}
@@ -232,8 +230,7 @@ const CometPath = ({ scrollYProgress, comet }) => {
             opacity={0.6}
           />
           
-          {/* Inner glow */}
-          <circle
+          <motion.circle
             cx="0"
             cy="0"
             r={comet.size}
@@ -241,8 +238,7 @@ const CometPath = ({ scrollYProgress, comet }) => {
             filter="drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))"
           />
           
-          {/* Core */}
-          <circle
+          <motion.circle
             cx="0"
             cy="0"
             r={comet.size * 0.6}

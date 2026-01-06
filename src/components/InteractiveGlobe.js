@@ -13,7 +13,7 @@ const CONTINENT_INFO = {
       "Full-stack development expertise",
       "Cross-border collaboration experience"
     ],
-    icon: "🌏",
+    icon: "",
     lat: 34.5553,
     lng: 100.7932
   },
@@ -26,7 +26,7 @@ const CONTINENT_INFO = {
       "Real-time data processing",
       "Performance-driven development"
     ],
-    icon: "🌍",
+    icon: "",
     lat: -8.7832,
     lng: 34.5085
   },
@@ -39,7 +39,7 @@ const CONTINENT_INFO = {
       "Best practices implementation",
       "Code quality standards"
     ],
-    icon: "🏛️",
+    icon: "",
     lat: 54.5973,
     lng: 15.2551
   },
@@ -52,7 +52,7 @@ const CONTINENT_INFO = {
       "RESTful API design & integration",
       "Advanced cloud technologies"
     ],
-    icon: "🚀",
+    icon: "",
     lat: 54.5260,
     lng: -105.2551
   },
@@ -65,7 +65,7 @@ const CONTINENT_INFO = {
       "Project leadership experience",
       "Stakeholder communication"
     ],
-    icon: "🎊",
+    icon: "",
     lat: -8.7832,
     lng: -55.4915
   },
@@ -78,7 +78,7 @@ const CONTINENT_INFO = {
       "Remote collaboration",
       "Fast execution"
     ],
-    icon: "🏝️",
+    icon: "",
     lat: -22.7359,
     lng: 140.0188
   },
@@ -91,7 +91,7 @@ const CONTINENT_INFO = {
       "Frontier technology",
       "Global cooperation"
     ],
-    icon: "🧊",
+    icon: "",
     lat: -82.8628,
     lng: 0
   }
