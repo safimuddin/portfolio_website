@@ -1,0 +1,107 @@
+.globe-page {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+/* Ensure ASMR background is visible behind everything - only target ASMRBackground */
+.globe-page .asmr-background {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0 !important;
+}
+
+/* ScrollComet should also be fixed and behind */
+.globe-page .scroll-comet-container {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1 !important;
+}
+
+/* Glowing stars background positioning */
+.glowing-stars-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.glowing-stars-background > div {
+  pointer-events: auto;
+}
+
+.globe-page-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* AskMe Section Styling */
+.globe-askme-section {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  background: transparent;
+  padding: 60px 20px;
+  margin-top: 40px;
+}
+
+/* Override the NavBar styling for globe page */
+.globe-page .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(26, 31, 58, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(170, 54, 124, 0.2);
+  width: 100%;
+}
+
+.globe-page .navbar nav {
+  padding: 1rem 2rem !important;
+}
+
+/* ScrollProgressBar should be on top */
+.scroll-progress-bar {
+  position: fixed !important;
+  z-index: 105 !important;
+}
+
+@media (max-width: 768px) {
+  .globe-page-content {
+    padding: 1rem;
+    padding-top: 100px;
+    height: auto;
+  }
+
+  .globe-askme-section {
+    padding: 40px 10px;
+  }
+}

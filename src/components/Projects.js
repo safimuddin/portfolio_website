@@ -1,48 +1,79 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
-import alHudaIMG from "../assets/img/alhudaimg.png";
-import collafusions from "../assets/img/collafusions.jpg";
-import dataStructures from "../assets/img/Data-Structure-and-Algorithm.jpg";
-import waveLab from "../assets/img/waveLab.png";
-import SKAPS from "../assets/img/SKAPS.jpg";
-import smapp from "../assets/img/smapp.jpg";
+import { Container, Row, Col } from "react-bootstrap";
+import { ArrowUpRight } from 'react-bootstrap-icons';
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
 
 export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [activeTab, setActiveTab] = useState("first");
-
-  const projectDescriptions = {
-    "Al Huda Islamic Center": "Led the software engineering team consisting of undergraduate and high school students that developed a website for our local mosque, which allows community members to donate money, contant the board members, and recieve newsletters on a weekly basis.",
-    "CS 1332": "Served as a TA for Data Structures and Algorithms, otherwise known as CS 1332, providing guidance and support to students, through TA led lectures twice a week, office hours, and creating/grading homeworks which involves implementations of data structures and certain algorithms.",
-    "Collafusions": "Interned at Collafusions where I contributed to the development of a website analytics service, where we utilized A/B testing and other methods to track user behaviour and inputs.",
-    "UGA WAVE Lab": "Worked as a Robotics Intern at UGA WAVE Lab, where I assisted in the development of a air-pump controlled worm that tracked under ground plant growth, automated by C++.",
-    "SKAPS": "Participated in a software engineering internship at SKAPS, focusing on implementing new features inside the materials database along with a team as wlel as ran integration and unit tests to ensure any updates ran smoothly.",
-    "Connexya": "Led the development of a social media app that focuses on showcasing a user's projects and ideas in a scrollable form, an AI powered project idea tool, and a collaboration tool where multiple users can form together to create projects and showcase them to the internet."
-  };
+  const [hoveredId, setHoveredId] = useState(null);
 
   const projects = [
-    { title: "Al Huda Islamic Center", description: "Software Engineer Lead", imgUrl: alHudaIMG },
-    { title: "CS 1332", description: "Data Structures and Algorithms TA", imgUrl: dataStructures },
-    { title: "Collafusions", description: "Software Engineer", imgUrl: collafusions },
-    { title: "UGA WAVE Lab", description: "Robotics Intern", imgUrl: waveLab },
-    { title: "SKAPS", description: "Software Engineer Intern", imgUrl: SKAPS },
-    { title: "Connexya", description: "Software Engineering Lead", imgUrl: smapp },
+    {
+      id: 1,
+      title: "Financial Forecasting with Sentiment Analysis",
+      category: "ML & NLP",
+      description: "Stock movement classifier using sentiment analysis with historical data",
+      fullDescription: "Constructed a sentiment enhanced stock movement classifier using historical SPY data and labeled financial news headlines. Engineered technical and sentiment features and trained Logistic Regression, Random Forest, and SVM models with temporal validation. Achieved up to 0.79 F1 score and 0.87 AUC ROC.",
+      tags: ["Python", "scikit-learn", "NLP", "Pandas", "Financial Data"],
+      color: "#AA367C",
+      featured: true
+    },
+    {
+      id: 2,
+      title: "CSVistool",
+      category: "Data Visualization",
+      description: "Real-time dataset processing and visualization platform",
+      fullDescription: "Developed backend services using Node.js and MongoDB to process and visualize large structured datasets in real time. Containerized and deployed services with Docker to ensure reproducible and reliable execution across environments.",
+      tags: ["React.js", "Node.js", "MongoDB", "Docker", "Express"],
+      color: "#4A2FBD",
+      featured: true
+    },
+    {
+      id: 3,
+      title: "Connexya",
+      category: "ML Platform",
+      description: "ML-powered mobile platform for intelligent project matching",
+      fullDescription: "Built an ML powered mobile platform using recommendation models for intelligent project matching and collaboration. Deployed real time inference pipelines with scalable APIs to generate content suggestions under peak load.",
+      tags: ["React Native", "Python", "Node.js", "PyTorch", "APIs"],
+      color: "#AA367C",
+      featured: true
+    },
+    {
+      id: 4,
+      title: "Al Huda Islamic Center",
+      category: "Web Development",
+      description: "Full-featured website with donations and community features",
+      fullDescription: "Led the software engineering team consisting of undergraduate and high school students that developed a website for our local mosque, which allows community members to donate money, contact board members, and receive newsletters.",
+      tags: ["Web Development", "Leadership", "Community"],
+      color: "#4A2FBD",
+      featured: false
+    },
+    {
+      id: 5,
+      title: "CS 1332 Teaching Assistant",
+      category: "Education",
+      description: "Guided 100+ students through DSA fundamentals",
+      fullDescription: "Served as a TA for Data Structures and Algorithms, providing guidance through TA-led lectures, office hours, and creating/grading homeworks. Provided code review, debugging guidance, and algorithmic support.",
+      tags: ["Teaching", "DSA", "Python", "Java"],
+      color: "#AA367C",
+      featured: false
+    },
+    {
+      id: 6,
+      title: "UGA WAVE Lab",
+      category: "Robotics",
+      description: "Air-pump controlled worm for plant root growth analysis",
+      fullDescription: "Programmed a silicone air-pumped soft robotic worm in C++ on a Raspberry Pi to analyze root growth and plant health. Created visualization tools and statistical models used in published research.",
+      tags: ["C++", "Robotics", "Raspberry Pi", "Research"],
+      color: "#4A2FBD",
+      featured: false
+    }
   ];
 
-  const handleSelect = (eventKey) => {
-    setSelectedProject(eventKey);
-  };
-
-  const handleCardClick = (projectTitle) => {
-    setSelectedProject(projectTitle);
-    setActiveTab("second"); // Switch to the Summary tab
-  };
+  const featuredProjects = projects.filter(p => p.featured);
+  const otherProjects = projects.filter(p => !p.featured);
 
   return (
     <section className="project" id="projects">
@@ -52,56 +83,74 @@ export const Projects = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Projects</h2>
-                  <p>Here are some of the projects/jobs that I have done over the past years.</p>
-                  <Tab.Container id="projects-tabs" activeKey={activeTab} onSelect={(k) => setActiveTab(k)}>
-                    <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                      <Nav.Item>
-                        <Nav.Link eventKey="first">Projects</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="second">Specifics</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="third">Summary</Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                    <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                      <Tab.Pane eventKey="first">
-                        <Row>
-                          {projects.map((project, index) => (
-                            <ProjectCard
-                              key={index}
-                              {...project}
-                              onClick={() => handleCardClick(project.title)}
-                            />
-                          ))}
-                        </Row>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="second">
-                        <DropdownButton
-                          className="dropdown"
-                          variant="dark"
-                          data-bs-theme="dark"
-                          title={selectedProject ? selectedProject : "Select Project"}
-                          id="bg-nested-dropdown"
-                          onSelect={handleSelect}
-                        >
-                          {Object.keys(projectDescriptions).map((project, index) => (
-                            <Dropdown.Item eventKey={project} key={index}>{project}</Dropdown.Item>
-                          ))}
-                        </DropdownButton>
-                        <div>
-                          {selectedProject && (
-                            <p>{projectDescriptions[selectedProject]}</p>
-                          )}
+                  <h2>Featured Projects</h2>
+                  <p>Highlighting my most impactful work across machine learning, full-stack development, and innovative platforms</p>
+
+                  {/* Featured Projects Grid */}
+                  <div className="featured-projects-grid">
+                    {featuredProjects.map((project) => (
+                      <div
+                        key={project.id}
+                        className="project-card-featured"
+                        onMouseEnter={() => setHoveredId(project.id)}
+                        onMouseLeave={() => setHoveredId(null)}
+                        onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
+                      >
+                        <div className="project-card-header">
+                          <h3>{project.title}</h3>
+                          <span className="project-category">{project.category}</span>
                         </div>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="third">
-                        <p>I have a diverse background in software engineering and technology, demonstrated through various impactful projects and internships. As a team lead, I successfully guided a group in developing a feature-rich website for a local mosque, incorporating donation systems, communication tools, and newsletter functionalities. My role as a TA for Data Structures and Algorithms honed my skills in teaching and problem-solving. Internships at Collafusions and SKAPS allowed me to work on website analytics, feature development, and testing, while my robotics internship at UGA WAVE Lab involved creating an innovative device for tracking plant growth. Additionally, I led the development of a dynamic social media app focused on showcasing projects, leveraging AI for idea generation, and fostering collaboration. Each experience has contributed to my expertise in building, testing, and deploying complex software solutions.</p>
-                      </Tab.Pane>
-                    </Tab.Content>
-                  </Tab.Container>
+                        
+                        <p className="project-description">{project.description}</p>
+
+                        <div className="project-tags">
+                          {project.tags.map((tag, idx) => (
+                            <span key={idx} className="tag">{tag}</span>
+                          ))}
+                        </div>
+
+                        {selectedProject === project.id && (
+                          <div className="project-expanded">
+                            <p className="full-description">{project.fullDescription}</p>
+                          </div>
+                        )}
+
+                        <div className="project-card-footer">
+                          <ArrowUpRight size={20} className={hoveredId === project.id ? "active" : ""} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Other Projects */}
+                  <div className="other-projects-section">
+                    <h3>Other Notable Work</h3>
+                    <div className="other-projects-list">
+                      {otherProjects.map((project) => (
+                        <div
+                          key={project.id}
+                          className="project-item-minimal"
+                          onMouseEnter={() => setHoveredId(project.id)}
+                          onMouseLeave={() => setHoveredId(null)}
+                        >
+                          <div className="project-item-left">
+                            <h4>{project.title}</h4>
+                            <p>{project.description}</p>
+                            <div className="project-tags-mini">
+                              {project.tags.slice(0, 3).map((tag, idx) => (
+                                <span key={idx} className="tag-mini">{tag}</span>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="project-item-right">
+                            <span className="category-badge">{project.category}</span>
+                            <ArrowUpRight size={20} className={hoveredId === project.id ? "active" : ""} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                 </div>
               }
             </TrackVisibility>

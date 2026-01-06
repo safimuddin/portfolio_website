@@ -10,7 +10,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
 
-  const toRotate = useMemo(() => ["Web Developer", "Machine Learning Developer", "Math Student"], []);
+  const toRotate = useMemo(() => ["ML Engineer", "Full-Stack Developer", "Computer Scientist", "Roboticist"], []);
   const period = 2000;
 
   const tick = useCallback(() => {
@@ -48,8 +48,16 @@ export const Banner = () => {
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <span className="tagline">This is my Portfolio</span>
-            <h1>{'Hi, I\'m Safi Uddin, a '}<span className="wrap">{text}</span></h1>
-            <h1>{' @ Georgia Tech'}</h1>
+            <h1>{'Hi, I\'m Safi Uddin'}</h1>
+            <h2>{'ML-focused CS major && '}<span className="wrap">{text}</span></h2>
+            <p>Building intelligent systems | Full-stack development | Distributed learning systems</p>
+            <div className="social-links">
+              <a href="tel:706-340-5999" className="social-link">📞 706-340-5999</a>
+              <a href="mailto:safimuddin2005@gmail.com" className="social-link">📧 safimuddin2005@gmail.com</a>
+              <a href="https://linkedin.com/in/safi-uddin-239860274/" target="_blank" rel="noopener noreferrer" className="social-link">💼 LinkedIn</a>
+              <a href="https://github.com/safimuddin" target="_blank" rel="noopener noreferrer" className="social-link">🔗 GitHub</a>
+              <a href="https://safimuddin.netlify.app" target="_blank" rel="noopener noreferrer" className="social-link">🌐 Website</a>
+            </div>
             <button onClick={() => console.log('connect')}>Let's connect! <ArrowRightCircle size={25}/></button>
           </Col>
           <Col xs={12} md={6} xl={5}>

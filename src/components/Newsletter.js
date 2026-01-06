@@ -1,25 +1,25 @@
-import {Alert} from "react-bootstrap";
-import {useState} from "react";
+import { Alert, Row, Col } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
-export const Newsletter = ({ onValidated, status, message}) => {
+export const Newsletter = ({ onValidated, status, message }) => {
     const [email, setEmail] = useState('');
 
     useEffect(() => {
         if (status === 'success') clearFields();
-    }, [status])
+    }, [status]);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        email && 
-        email.indexOf("@") > -1 &&
-        onValidated({
-            EMAIL: email
-        })
-    }
+        if (email && email.indexOf("@") > -1) {
+            onValidated({
+                EMAIL: email
+            });
+        }
+    };
 
     const clearFields = () => {
         setEmail('');
-    }
+    };
 
     return (
         <Col lg={12}>
@@ -27,18 +27,23 @@ export const Newsletter = ({ onValidated, status, message}) => {
                 <Row>
                     <Col lg={12} md={6} xl={5}>
                         <h3>Subscribe to our Newsletter</h3>
-                        {statusbar === 'sending' && <Alert>Sending...</Alert>}
-                        {statusbar === 'error' && <Alert variant="danger">{message}</Alert>}
-                        {statusbar === '' && <Alert varient="success">{message}</Alert>}
+                        {status === 'sending' && <Alert>Sending...</Alert>}
+                        {status === 'error' && <Alert variant="danger">{message}</Alert>}
+                        {status === 'success' && <Alert variant="success">{message}</Alert>}
                     </Col>
                     <Col md={6} xl={7}>
                         <div className="new-email-bx">
-                            <input value={email} type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" />
-                            <button type="submit">Submit</button>
+                            <input 
+                                value={email} 
+                                type="email" 
+                                onChange={(e) => setEmail(e.target.value)} 
+                                placeholder="Email Address" 
+                            />
+                            <button type="submit" onClick={handleSubmit}>Submit</button>
                         </div>
                     </Col>
                 </Row>
             </div>
         </Col>
-    )
-})
+    );
+};

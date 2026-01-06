@@ -1,0 +1,368 @@
+.continent-card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeInOverlay 0.3s ease-out;
+  padding: 20px;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.continent-card-wrapper {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  justify-content: center;
+}
+
+.continent-card {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(20, 25, 50, 0.95) 0%, rgba(15, 20, 45, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  animation: slideUpCard 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideUpCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-header-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  position: relative;
+}
+
+.card-icon-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon {
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  line-height: 1;
+}
+
+.card-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.card-close-btn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.3s ease;
+  font-size: 0;
+}
+
+.card-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
+}
+
+.card-close-btn:active {
+  transform: scale(0.95);
+}
+
+.card-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  margin: 0;
+}
+
+.card-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.card-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid rgba(255, 107, 107, 0.6);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-left-color: rgba(255, 107, 107, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+  padding-left: 16px;
+}
+
+.detail-bullet {
+  color: rgba(255, 107, 107, 0.8);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.detail-text {
+  flex: 1;
+  word-break: break-word;
+}
+
+.card-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-timestamp {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Custom scrollbar for card content */
+.card-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.card-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .continent-card-overlay {
+    padding: 16px;
+  }
+
+  .continent-card {
+    border-radius: 12px;
+  }
+
+  .card-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 32px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-header-top {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .card-content {
+    padding: 16px;
+    max-height: calc(100vh - 150px);
+  }
+
+  .detail-item {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .card-footer {
+    padding: 12px 16px;
+  }
+}
+
+.detail-bullet {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  min-width: 8px;
+  margin-top: 2px;
+}
+
+.detail-text {
+  flex: 1;
+}
+
+.card-timestamp {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Scrollbar styling */
+.continent-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.continent-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.continent-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 107, 0.3);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.continent-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 107, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .continent-card {
+    padding: 24px;
+    border-radius: 16px;
+    max-height: 75vh;
+  }
+
+  .card-icon {
+    font-size: 48px;
+    min-width: 60px;
+    height: 60px;
+  }
+
+  .card-title {
+    font-size: 24px;
+  }
+
+  .detail-item {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .continent-card-overlay {
+    padding: 10px;
+  }
+
+  .continent-card {
+    padding: 20px;
+    border-radius: 12px;
+    max-height: 70vh;
+  }
+
+  .card-close {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .card-icon {
+    font-size: 40px;
+    min-width: 50px;
+    height: 50px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-header {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .detail-item {
+    font-size: 13px;
+    padding: 8px;
+    gap: 8px;
+  }
+}

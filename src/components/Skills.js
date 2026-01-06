@@ -30,28 +30,56 @@ export const Skills = () => {
             <div className="row">
                 <div className="col-12">
                     <div className="skill-bx wow zoomIn">
-                        <h2>Skills</h2>
-                        <p>Here are some of the skills I have developed over the years through various projects, jobs, and being a student.</p>
+                        <h2>Technical Skills</h2>
+                        <p>Expertise across full-stack development, machine learning, cloud infrastructure, and distributed systems</p>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                             <div className="item">
-                                <img src={meter1} alt="Web Development Skill" />
-                                <h5>Web Development</h5>
+                                <img src={meter1} alt="Python" />
+                                <h5>Python</h5>
                             </div>
                             <div className="item">
-                                <img src={meter2} alt="Backend Development Skill" />
-                                <h5>Backend Development</h5>
+                                <img src={meter2} alt="Machine Learning" />
+                                <h5>Machine Learning</h5>
                             </div>
                             <div className="item">
-                                <img src={meter2} alt="Machine Learning Skill" />
-                                <h5>Machine Learning Development</h5>
+                                <img src={meter1} alt="PyTorch & TensorFlow" />
+                                <h5>PyTorch & TensorFlow</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Data Structures and Algorithms Skill" />
-                                <h5>Data Structures and Algorithms</h5>
+                                <img src={meter2} alt="React.js & React Native" />
+                                <h5>React.js & React Native</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Teaching Skill" />
-                                <h5>Teaching</h5>
+                                <img src={meter1} alt="Node.js & Express" />
+                                <h5>Node.js & Express</h5>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="C++ & Go" />
+                                <h5>C++ & Go</h5>
+                            </div>
+                            <div className="item">
+                                <img src={meter1} alt="AWS & Cloud Infrastructure" />
+                                <h5>AWS & Cloud</h5>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="Docker & CI/CD" />
+                                <h5>Docker & CI/CD</h5>
+                            </div>
+                            <div className="item">
+                                <img src={meter1} alt="Data Structures & Algorithms" />
+                                <h5>Data Structures & Algorithms</h5>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="Linear Algebra & Probability" />
+                                <h5>Linear Algebra & Probability</h5>
+                            </div>
+                            <div className="item">
+                                <img src={meter1} alt="MongoDB & PostgreSQL" />
+                                <h5>MongoDB & PostgreSQL</h5>
+                            </div>
+                            <div className="item">
+                                <img src={meter2} alt="GPU-Based Training" />
+                                <h5>GPU Training</h5>
                             </div>
                         </Carousel>
                     </div>
