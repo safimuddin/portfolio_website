@@ -2,7 +2,6 @@
   command = "npm run build"
   functions = "netlify/functions"
   publish = "build"
-  environment = { GEMINI_API_KEY = "AIzaSyDQPOb7SRYDVunXHNfmZO8hwzt1ZmCFGv4" }
 
 [[redirects]]
   from = "/api/*"
