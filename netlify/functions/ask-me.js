@@ -13,6 +13,7 @@ exports.handler = async (event, context) => {
         const apiKey = process.env.GEMINI_API_KEY;
         
         if (!apiKey) {
+            console.error('GEMINI_API_KEY environment variable is not set');
             return {
                 statusCode: 500,
                 body: JSON.stringify({
