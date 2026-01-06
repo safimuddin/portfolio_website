@@ -53,7 +53,6 @@ export const Banner = () => {
             <p>Building intelligent systems | Full-stack development | Distributed learning systems</p>
             <div className="social-links">
               <a href="tel:706-340-5999" className="social-link">706-340-5999</a>
-              <a href="mailto:safimuddin2005@gmail.com" className="social-link">safimuddin2005@gmail.com</a>
               <a href="https://linkedin.com/in/safi-uddin-239860274/" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
               <a href="https://github.com/safimuddin" target="_blank" rel="noopener noreferrer" className="social-link">GitHub</a>
               <a href="https://safimuddin.netlify.app" target="_blank" rel="noopener noreferrer" className="social-link">Website</a>

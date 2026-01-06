@@ -32,7 +32,6 @@ Your portfolio website has been completely revamped to showcase your updated res
 - Added new introduction text
 - Added social links section with:
   - Phone number (706-340-5999)
-  - Email (safimuddin2005@gmail.com)
   - LinkedIn profile
   - GitHub profile
   - Personal website

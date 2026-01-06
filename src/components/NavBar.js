@@ -68,7 +68,7 @@ export const NavBar = () => {
                 <img src={navIcon1} alt="LinkedIn" />
               </a>
             </div>
-            <button className="vvd" onClick={() => window.location.href = 'mailto:safimuddin2005@gmail.com?subject=Let\'s Connect!'}><span>Let's Connect</span></button>
+            <button className="vvd" onClick={() => handleNavClick('ask-me')}><span>Let's Connect</span></button>
           </span>
         </Navbar.Collapse>
       </Container>

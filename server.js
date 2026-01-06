@@ -58,7 +58,7 @@ router.post("/api/ask-me", async (req, res) => {
         
         if (!apiKey) {
             return res.status(500).json({
-                response: "AI assistant is currently unavailable. Please contact me directly at safimuddin2005@gmail.com"
+                response: "AI assistant is currently unavailable. Please try again later."
             });
         }
 
@@ -108,7 +108,7 @@ router.post("/api/ask-me", async (req, res) => {
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({
-            response: "I'm having trouble processing your question. Please try again or reach out directly at safimuddin2005@gmail.com"
+            response: "I'm having trouble processing your question. Please try again later."
         });
     }
 });

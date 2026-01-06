@@ -115,7 +115,7 @@ Education:
       return data.response;
     } catch (error) {
       console.error('Error:', error);
-      return "I apologize, but I'm having trouble connecting to my AI assistant. Please try again later or reach out directly at safimuddin2005@gmail.com";
+      return "I apologize, but I'm having trouble connecting to my AI assistant. Please try again later.";
     }
   };
 

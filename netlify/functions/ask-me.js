@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
             return {
                 statusCode: 500,
                 body: JSON.stringify({
-                    response: "AI assistant is currently unavailable. Please contact me directly at safimuddin2005@gmail.com"
+                    response: "AI assistant is currently unavailable. Please try again later."
                 })
             };
         }
@@ -70,7 +70,7 @@ exports.handler = async (event, context) => {
         return {
             statusCode: 500,
             body: JSON.stringify({
-                response: "I'm having trouble processing your question. Please try again or reach out directly at safimuddin2005@gmail.com"
+                response: "I'm having trouble processing your question. Please try again later."
             })
         };
     }
