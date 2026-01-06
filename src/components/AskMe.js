@@ -17,7 +17,6 @@ export const AskMe = () => {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(true);
-  const messagesEndRef = useRef(null);
   const chatMessagesRef = useRef(null);
 
   const suggestions = [
