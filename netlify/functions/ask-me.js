@@ -17,10 +17,12 @@ exports.handler = async (event, context) => {
             return {
                 statusCode: 500,
                 body: JSON.stringify({
-                    response: "AI assistant is currently unavailable. Please try again later."
+                    response: "API key not configured. Please contact the administrator."
                 })
             };
         }
+
+        console.log('API key found, proceeding with Gemini request');
 
         const systemPrompt = `You are a helpful AI assistant representing Safi Uddin's portfolio. Here is Safi's resume information:\n\n${resumeContext}\n\nAnswer questions about Safi's experience, skills, projects, and background based on this information. Be concise and helpful. Keep responses to 2-3 sentences when possible.`;
 
@@ -51,11 +53,18 @@ exports.handler = async (event, context) => {
 
         const data = await geminiResponse.json();
 
+        if (!geminiResponse.ok) {
+            console.error('Gemini API error response:', data);
+            throw new Error(`Gemini API error: ${data.error?.message || 'Unknown error'}`);
+        }
+
         if (data.error) {
+            console.error('Gemini error field detected:', data.error);
             throw new Error(data.error.message);
         }
 
         if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+            console.error('Invalid Gemini response format:', data);
             throw new Error('Invalid response format from Gemini');
         }
 
@@ -67,11 +76,13 @@ exports.handler = async (event, context) => {
         };
 
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Ask-me function error:', error.message);
+        console.error('Error details:', error);
         return {
             statusCode: 500,
             body: JSON.stringify({
-                response: "I'm having trouble processing your question. Please try again later."
+                response: "I'm having trouble processing your question. Please try again later.",
+                error: error.message
             })
         };
     }
